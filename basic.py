@@ -125,13 +125,13 @@ TT_EOF				= 'EOF'
 
 KEYWORDS = [
   'VAR',
-  'p',
   'AND',
   'OR',
   'NOT',
   'IF',
   'ELIF',
   'ELSE',
+  'p',
   'FOR',
   'TO',
   'STEP',
@@ -679,7 +679,7 @@ class Parser:
     if res.error:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Expected 'VAR', p, 'IF', 'FOR', 'WHILE', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+        "Expected 'VAR', 'IF', 'FOR', 'WHILE', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
       ))
 
     return res.success(node)
@@ -810,8 +810,7 @@ class Parser:
       if_expr = res.register(self.if_expr())
       if res.error: return res
       return res.success(if_expr)
-    elif tok.matches(TT_KEYWORD, 'p'):
-      print
+
     elif tok.matches(TT_KEYWORD, 'FOR'):
       for_expr = res.register(self.for_expr())
       if res.error: return res
@@ -1857,6 +1856,7 @@ class BuiltInFunction(BaseFunction):
   execute_run.arg_names = ["fn"]
 
 BuiltInFunction.print       = BuiltInFunction("print")
+BuiltInFunction.print       = BuiltInFunction("p")
 BuiltInFunction.print_ret   = BuiltInFunction("print_ret")
 BuiltInFunction.input       = BuiltInFunction("input")
 BuiltInFunction.input_int   = BuiltInFunction("input_int")
