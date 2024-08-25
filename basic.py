@@ -125,6 +125,7 @@ TT_EOF				= 'EOF'
 
 KEYWORDS = [
   'VAR',
+  'p',
   'AND',
   'OR',
   'NOT',
@@ -640,7 +641,7 @@ class Parser:
     if res.error:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Expected 'RETURN', 'CONTINUE', 'BREAK', 'VAR', 'IF', 'FOR', 'WHILE', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+        "Expected 'RETURN', p, 'CONTINUE', 'BREAK', 'VAR', 'IF', 'FOR', 'WHILE', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
       ))
     return res.success(expr)
 
@@ -678,7 +679,7 @@ class Parser:
     if res.error:
       return res.failure(InvalidSyntaxError(
         self.current_tok.pos_start, self.current_tok.pos_end,
-        "Expected 'VAR', 'IF', 'FOR', 'WHILE', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
+        "Expected 'VAR', p, 'IF', 'FOR', 'WHILE', 'FUN', int, float, identifier, '+', '-', '(', '[' or 'NOT'"
       ))
 
     return res.success(node)
@@ -809,7 +810,8 @@ class Parser:
       if_expr = res.register(self.if_expr())
       if res.error: return res
       return res.success(if_expr)
-
+    elif tok.matches(TT_KEYWORD, 'p'):
+      print
     elif tok.matches(TT_KEYWORD, 'FOR'):
       for_expr = res.register(self.for_expr())
       if res.error: return res
