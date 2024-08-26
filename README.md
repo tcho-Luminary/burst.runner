@@ -1,6 +1,9 @@
 # Burst.Runner
 Burst.Runner is a powerful and flexible tool for running performance tests on your code. It allows you to easily create and run performance tests, analyze the results, and identify performance bottlenecks in your application.
 
+## support for other languages
+i would add support if you guys contact me and tell me to do it
+
 ## Features
 Easy to Use: Burst.Runner provides a simple and intuitive interface for testing your projects
 without being to wait for the code editor slow enviroment burst.runner is for windows,mac and linux 
