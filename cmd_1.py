@@ -2,14 +2,17 @@ import traceback
 from clear_screen import clear
 import time
 
+p = print
 
+print("use 'connect {path of file here}\nthan to run file use 'run' \nuse quit or exit to get out ")
+p("cls,clean and clear can be used")
 def wait(wait):
     time.sleep(wait)
 def main():
     print("Burst.runner")
     while True:
         
-        text = input("basic > ")
+        text = input("basic > ").lower()
         if text == "exit" or text == "quit":
             break
         elif text.startswith("connect "):
