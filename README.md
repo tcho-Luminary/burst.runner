@@ -14,5 +14,6 @@ We welcome contributions to Burst.Runner! If you have an idea for a new feature 
 
 If you would like to contribute code, please follow these steps:
 
-message me on discord: "__tabur__"
+message me on discord:![image](https://github.com/user-attachments/assets/8133edeb-3de8-4d62-9399-8561b6e49fc5)
+
 I would respond fast as i can!
