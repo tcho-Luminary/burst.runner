@@ -13,7 +13,7 @@ def main():
     print("Burst.runner")
     while True:
         
-        text = input("basic > ").lower()
+        text = input("burst.run > ").lower()
         if text == "exit" or text == "quit":
             break
         elif text.startswith("connect "):
