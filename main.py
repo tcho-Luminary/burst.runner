@@ -4,8 +4,9 @@ import time
 
 p = print
 
-print("use 'connect {path of file here}\nthan to run file use 'run' \nuse quit or exit to get out ")
+p("use 'connect {path of file here}\nthan to run file use 'run' \nuse quit or exit to get out ")
 p("cls,clean and clear can be used")
+p("pip support")
 def wait(wait):
     time.sleep(wait)
 def main():
