@@ -1,33 +1,50 @@
 import traceback
 from clear_screen import clear
 import time
+import os
+import subprocess
 
 p = print
 
 p("use 'connect {path of file here}\nthan to run file use 'run' \nuse quit or exit to get out ")
 p("cls,clean and clear can be used")
 p("pip support")
+
 def wait(wait):
     time.sleep(wait)
+
 def main():
     print("Burst.runner")
     while True:
-        
         text = input("burst.run > ").lower()
         if text == "exit" or text == "quit":
             break
+        elif text == "code .":
+            b = input("enter the direct path to code editor exe: ")
+            try:
+                with open("code_editor_path.txt", "w") as file:
+                    file.write(b)
+                    print("Path saved successfully!")
+                with open("code_editor_path.txt", "r") as file:
+                    vscode_path = file.read().strip()
+                if os.path.isfile(vscode_path):
+                    # Run the executable
+                    subprocess.Popen([vscode_path])
+                    print("Code editor is now running.")
+                else:
+                    print("The saved path does not exist. Please save a valid path first.")
+            except FileNotFoundError:
+                print("No path saved. Please save the path first.")
         elif text.startswith("connect "):
             file_path = text.split(" ")[1]
             connect_py_file(file_path)
         elif text.startswith('pip '):
-            handle_command()
+            handle_command(text)  # Pass the user input to handle_command
         elif text == 'cls' or text == 'clear' or text == 'clean':
             clear()
             print("Burst.runner")
-        
         else:
             print(text)
-import subprocess
 
 def handle_command(text):
     if text.startswith('pip '):
@@ -57,12 +74,7 @@ def handle_command(text):
         
         else:
             print("Invalid pip command. Please use 'install <package>', 'uninstall <package>', or 'list'.")
-    else:
-        print("Unknown command. Please start with 'pip'.")
 
-# Example usage
-user_input = input("Enter a command: ")
-handle_command(user_input)
 def connect_py_file(file_path):
     print("Burst.runner")
     while True:
@@ -74,7 +86,6 @@ def connect_py_file(file_path):
                 wait(0.2)
                 exec(open(f'{file_path}').read())
             except Exception as e:
-                # Handle any exception
                 print("An error occurred:", e)
                 traceback.print_exc()
         elif text == "exit" or text == "quit":
@@ -86,4 +97,4 @@ def connect_py_file(file_path):
 
 if __name__ == "__main__":
     main()
-
+    
