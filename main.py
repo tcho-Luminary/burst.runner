@@ -8,7 +8,8 @@ p = print
 
 p("use 'connect {path of file here}\nthan to run file use 'run' \nuse quit or exit to get out ")
 p("cls,clean and clear can be used")
-p("pip support")
+p("pip support + code . commands support")
+p("version 0.2")
 
 def wait(wait):
     time.sleep(wait)
@@ -97,4 +98,3 @@ def connect_py_file(file_path):
 
 if __name__ == "__main__":
     main()
-    
