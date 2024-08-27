@@ -1,10 +1,14 @@
 # Burst.Runner
-Burst.Runner is a powerful and flexible tool for running performance tests on your code. It allows you to easily create and run performance tests, analyze the results, and identify performance bottlenecks in your application.
+Burst.Runner is a powerful and flexible tool for running python code, can be used as a solution to editors slow terminal
+
+## support for other languages
+Support can be added by editing a little bit i would add support if i get somebody
+sending me code or i just add it myself
 
 ## Features
 Easy to Use: Burst.Runner provides a simple and intuitive interface for testing your projects
-without being to wait for the code editor slow enviroment burst.runner is only for windows
-for now i will try to make it for mac if i can.
+without being to wait for the code editor slow enviroment burst.runner is for windows,mac and linux 
+since i didn't compiled it i would compile for windows for other it still .py
 
 
 
